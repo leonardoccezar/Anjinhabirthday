@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anjinha faz 30 ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.svg">
+</head>
+<body>
+    <div class="container">
+        <h1>Anjinha faz 30 ❤️</h1>
+        <div class="photo-placeholder">
+            <span>Foto especial aqui</span>
+        </div>
+        <div class="texto">
+            <p>Hoje você faz 30 anos. E eu queria te dar mais do que um presente bonito queria te entregar um pedaço da nossa história, com carinho em cada detalhe.</p>
+            <p>Dentro dessa caixa tem mais do que fotos, mais do que um perfume.<br>
+            Tem a mulher mais linda que eu conheço, eternizada em imagens que mostram o quanto você é única.<br>
+            Tem nossas memórias em polaroids, guardadas com o mesmo cuidado que eu guardo cada instante ao seu lado.<br>
+            E tem um perfume que carrega um significado muito maior do que parece.</p>
+            <p><b>O Libre, da Yves Saint Laurent.</b><br>
+            Escolhi ele porque o nome diz tudo: Libre, livre.<br>
+            Livre pra ser quem você é.<br>
+            Forte, empreendedora, vaidosa, intensa.<br>
+            Mãe corajosa, mulher determinada. Linda por fora e ainda mais por dentro.<br>
+            Você é aquela que não espera: faz acontecer. Que sente tudo com verdade. Que brilha com presença.<br>
+            E que, por algum motivo especial da vida, escolheu estar comigo.</p>
+            <p>As notas de lavanda e flor de laranjeira desse perfume carregam o equilíbrio exato entre a sua força e a sua doçura.<br>
+            A baunilha lembra o calor da sua presença.<br>
+            E cada vez que você usá-lo, quero que lembre disso:<br>
+            Você é livre, poderosa, inesquecível. E muito, muito amada.</p>
+            <p>Estar ao seu lado é algo que me motiva. Te ver completar 30 anos, tão plena, tão você, me enche de orgulho, me faz te admirar ainda mais e querer viver tudo ao seu lado.</p>
+            <p>Eu te celebro. Eu te amo.<br>
+            E estarei aqui pra continuar construindo, vivendo e sonhando com você.<br>
+            <b>Feliz 30 anos, meu amor.<br>
+            — Léo ❤️</b></p>
+        </div>
+        <div class="music">
+            <audio controls autoplay muted>
+              <source src="meujeitodesentir.mp3" type="audio/mpeg">
+              Seu navegador não suporta o elemento de áudio.
+            </audio>
+            <p class="music-caption">Gusttavo Lima - Meu Jeito de Sentir</p>
+        </div>
+    </div>
+    <script>
+      window.addEventListener('DOMContentLoaded', function() {
+        var audio = document.querySelector('audio');
+        if(audio) {
+          // Tenta dar play mudo ao carregar
+          audio.muted = true;
+          audio.play();
+
+          // Ao primeiro clique, desmuta e dá play
+          function desbloquearAudio() {
+            audio.muted = false;
+            audio.play();
+            window.removeEventListener('click', desbloquearAudio);
+          }
+          window.addEventListener('click', desbloquearAudio);
+        }
+      });
+    </script>
+</body>
+</html> 
