@@ -52,13 +52,15 @@
           audio.muted = true;
           audio.play();
 
-          // Ao primeiro clique, desmuta e dá play
+          // Ao primeiro clique ou scroll, desmuta e dá play
           function desbloquearAudio() {
             audio.muted = false;
             audio.play();
             window.removeEventListener('click', desbloquearAudio);
+            window.removeEventListener('scroll', desbloquearAudio);
           }
           window.addEventListener('click', desbloquearAudio);
+          window.addEventListener('scroll', desbloquearAudio);
         }
       });
       // Mural de Polaroids
