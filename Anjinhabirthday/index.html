@@ -10,8 +10,8 @@
 <body>
     <div class="container">
         <h1>Anjinha faz 30 ❤️</h1>
-        <div class="photo-placeholder">
-            <span>Foto especial aqui</span>
+        <div class="polaroid-mural">
+            <!-- As imagens serão carregadas aqui -->
         </div>
         <div class="texto">
             <p>Hoje você faz 30 anos. E eu queria te dar mais do que um presente bonito queria te entregar um pedaço da nossa história, com carinho em cada detalhe.</p>
@@ -61,6 +61,25 @@
           window.addEventListener('click', desbloquearAudio);
         }
       });
+      // Mural de Polaroids
+      (function() {
+        const mural = document.querySelector('.polaroid-mural');
+        if (!mural) return;
+        // Supondo até 20 fotos nomeadas como foto1.jpg, foto2.jpg, ...
+        for (let i = 1; i <= 1; i++) {
+          const img = document.createElement('img');
+          img.src = `polaroids/foto${i}.jpg`;
+          img.alt = `Polaroid ${i}`;
+          img.onerror = function() { this.style.display = 'none'; };
+          const polaroid = document.createElement('div');
+          polaroid.className = 'polaroid';
+          // Inclinação aleatória
+          const rot = (Math.random() - 0.5) * 10;
+          polaroid.style.transform = `rotate(${rot}deg)`;
+          polaroid.appendChild(img);
+          mural.appendChild(polaroid);
+        }
+      })();
     </script>
 </body>
 </html> 
