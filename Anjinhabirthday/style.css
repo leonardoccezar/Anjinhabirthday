@@ -96,6 +96,61 @@ h1 {
   z-index: 2;
 }
 
+#surpresa-overlay {
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(120deg, #fbeffb 0%, #e3f0ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.7s;
+}
+.surpresa-box {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  padding: 38px 28px 32px 28px;
+  text-align: center;
+  max-width: 90vw;
+}
+.surpresa-box h2 {
+  color: #d16ba5;
+  font-size: 2rem;
+  margin-bottom: 24px;
+  font-family: 'Dancing Script', cursive, sans-serif;
+}
+#abrir-surpresa {
+  background: linear-gradient(90deg, #d16ba5 0%, #86a8e7 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  padding: 16px 32px;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgba(209,107,165,0.10);
+  transition: background 0.2s, transform 0.2s;
+}
+#abrir-surpresa:hover {
+  background: linear-gradient(90deg, #86a8e7 0%, #d16ba5 100%);
+  transform: scale(1.05);
+}
+@media (max-width: 500px) {
+  .surpresa-box h2 {
+    font-size: 1.2rem;
+  }
+  #abrir-surpresa {
+    font-size: 1rem;
+    padding: 12px 18px;
+  }
+  .surpresa-box {
+    padding: 18px 6vw 18px 6vw;
+  }
+}
+
 @media (max-width: 700px) {
     .container {
         padding: 10px 2vw;

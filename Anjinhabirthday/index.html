@@ -8,7 +8,13 @@
     <link rel="icon" type="image/png" href="favicon.svg">
 </head>
 <body>
-    <div class="container">
+    <div id="surpresa-overlay">
+      <div class="surpresa-box">
+        <h2>Tem uma surpresa pra você! 🎁</h2>
+        <button id="abrir-surpresa">Abrir minha surpresa</button>
+      </div>
+    </div>
+    <div class="container" style="opacity:0; filter: blur(8px); pointer-events: none; transition: opacity 0.7s, filter 0.7s;">
         <h1>Anjinha faz 30 ❤️</h1>
         <div class="polaroid-mural">
             <!-- As imagens serão carregadas aqui -->
@@ -47,21 +53,29 @@
     <script>
       window.addEventListener('DOMContentLoaded', function() {
         var audio = document.querySelector('audio');
-        if(audio) {
-          // Tenta dar play mudo ao carregar
-          audio.muted = true;
-          audio.play();
-
-          // Ao primeiro clique ou scroll, desmuta e dá play
-          function desbloquearAudio() {
+        var overlay = document.getElementById('surpresa-overlay');
+        var btnSurpresa = document.getElementById('abrir-surpresa');
+        var container = document.querySelector('.container');
+        function mostrarConteudo() {
+          if(audio) {
             audio.muted = false;
             audio.play();
-            window.removeEventListener('click', desbloquearAudio);
-            window.removeEventListener('scroll', desbloquearAudio);
           }
-          window.addEventListener('click', desbloquearAudio);
-          window.addEventListener('scroll', desbloquearAudio);
+          overlay.style.opacity = 0;
+          setTimeout(function() {
+            overlay.style.display = 'none';
+            container.style.opacity = 1;
+            container.style.filter = 'none';
+            container.style.pointerEvents = 'auto';
+          }, 700);
         }
+        if(btnSurpresa) {
+          btnSurpresa.addEventListener('click', mostrarConteudo);
+        }
+        // Garante que o conteúdo não aparece antes
+        container.style.opacity = 0;
+        container.style.filter = 'blur(8px)';
+        container.style.pointerEvents = 'none';
       });
       // Mural de Polaroids
       (function() {
